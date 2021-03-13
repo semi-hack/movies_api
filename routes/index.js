@@ -41,4 +41,21 @@ router.get('/movies', async (req, res) => {
     }
 })
 
+router.get('/gett', async (req, res) => {
+    const movielist = await movieService.getMovies(req.body)
+    res.status(200).json({
+        message: movielist
+    })
+})
+
+router.delete('/mov', async (req, res) => {
+    try {
+        await movieService.deleteMovie(req.body.Title);
+        const mv = await movieService.getData();
+        res.sendStatus(200)
+    } catch (err) {
+        return res.status(500)
+    }
+})
+
 module.exports = router
