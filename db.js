@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 // const URI = "mongodb+srv://admin:admin@cluster0.zz5iq.mongodb.net/test?retryWrites=true&w=majority"
+require('dotenv').config();
 
 const options = {
     useNewUrlParser: true,
